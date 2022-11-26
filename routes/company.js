@@ -3,11 +3,8 @@ var router = express.Router();
 const usersController = require('../controllers/usersController')
 
 /* GET users listing. */
-router.get('/', usersController.index);
+router.get('/', usersController.company);
 
-router.get('/bio', usersController.bio);
-
-router.get('/company', usersController.company);
 
 
 module.exports = router;
