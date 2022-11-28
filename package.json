@@ -1,18 +1,12 @@
 {
   "name": "2013211517-express",
-  "version": "0.0.0",
+  "version": "9.2.9",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon .bin/www"
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "start": "node ./bing/wwww",
+    "dev": "nodemon .bing/wwww"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.201"
   }
 }
