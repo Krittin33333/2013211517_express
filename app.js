@@ -17,9 +17,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const staffRouter = require('./routes/staff')
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/company', companyRouter);
+app.use('/staff',staffRouter);
 
 module.exports = app;
 
