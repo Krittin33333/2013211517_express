@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const usersController = require('../controllers/usersController')
+const companyController = require('../controllers/companyController')
 
 /* GET users listing. */
-router.get('/', usersController.company);
+router.get('/', companyController.index);
 
 
 
