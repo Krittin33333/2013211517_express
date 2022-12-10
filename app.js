@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var companyRouter = require('./routes/company');
 
 var app = express();
-mongoose.connect('mongodb+srv://superdev:1590@2013211517-krittin.q5pelue.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://superdev:1590@2013211517-krittin.q5pelue.mongodb.net/restfulapi?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(logger('dev'));
 app.use(express.json());
