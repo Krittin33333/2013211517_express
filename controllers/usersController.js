@@ -33,7 +33,7 @@ exports.company = (req, res, next) => {
           name: 'M.SOFT (Thailand)',
           address: {
               province: 'Bangkok',
-              postcode: '10120'
+              postcode: '101202'
           }},{
           id: 3,
           name: 'C.S.I. Group',
