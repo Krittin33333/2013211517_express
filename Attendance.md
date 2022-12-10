@@ -1,1 +1,1 @@
-Krittin (Aom): Chapter 4 - Node.js (Express) with MongoDB
+Krittin (Aom): Chapter 4 - MongoDB
