@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var companyRouter = require('./routes/company');
 var shopRouter = require('./routes/shop');
 
+
 var app = express();
 mongoose.connect('mongodb+srv://superdev:1590@2013211517-krittin.q5pelue.mongodb.net/restfulapi?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -25,6 +26,7 @@ app.use('/users', usersRouter);
 app.use('/company', companyRouter);
 app.use('/staff',staffRouter);
 app.use('/shop',shopRouter);
+
 
 
 module.exports = app;
