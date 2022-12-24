@@ -40,9 +40,9 @@ exports.menu = async(req, res, next) => {
  
         const { id } = req.params
   
-        const shops = await shop.findOne({
-            _id : id
-        }).populate('menus')
+        // const shops = await shop.findOne({_id : id}).populate('menus')
+
+        const shops = await shop.findById(id).populate('menus')
   
          res.status(200).json({
                 data: shops
