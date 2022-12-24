@@ -7,6 +7,8 @@ const shopsController = require('../controllers/shopsController')
 router.get('/', shopsController.index);
 router.get('/menu', shopsController.menu);
 
+router.get('/:id', shopsController.selectid);
+
 
 
 module.exports = router;

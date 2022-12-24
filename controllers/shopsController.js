@@ -1,6 +1,7 @@
 
   const shop = require('../models/shops');
   const menu = require('../models/menu');
+const { schema } = require('../models/shops');
 
 
 exports.index = async(req, res, next) => {
@@ -23,12 +24,35 @@ exports.index = async(req, res, next) => {
 
 exports.menu = async(req, res, next) => {
     // res.send('respond with a resource');
-    const menus = await menu.find()
+    // const menus = await menu.find().select('+name -price')
+
+    // const menus = await menu.find().where('price').gt(200)
+    const menus = await menu.find().populate('menu')
+
 
     res.status(200).json({
       data: menus
     })
   };
+
+  exports.selectid = async(req, res, next) => {
+        
+ 
+        const { id } = req.params
+  
+        const shops = await shop.findOne({
+            _id : id
+        }).populate('menus')
+  
+         res.status(200).json({
+                data: shops
+              })
+        
+
+        
+    
+        
+      };
 
 
 
