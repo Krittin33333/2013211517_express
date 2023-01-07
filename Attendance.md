@@ -1,1 +1,1 @@
-Krittin (Aom): Chapter 5 - Advance Mongosoe
+Krittin (Aom): Chapter 6 - Environment
