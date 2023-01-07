@@ -2,6 +2,7 @@
   const shop = require('../models/shops');
   const menu = require('../models/menu');
 const { schema } = require('../models/shops');
+const config = require('../config/index')  //env
 
 
 exports.index = async(req, res, next) => {
@@ -12,7 +13,7 @@ exports.index = async(req, res, next) => {
     return{
       id: shop._id,
       name: shop.name,
-      photo: 'http://localhost:3000/images/'+ shop.photo,
+      photo: config.DOMAIN+ shop.photo,
       location:shop.location
     }
   })
