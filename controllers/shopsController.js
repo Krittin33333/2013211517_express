@@ -21,6 +21,7 @@ exports.index = async(req, res, next) => {
       id: shop._id,
       name: shop.name,
       photo: config.DOMAIN+ shop.photo,
+      location:shop.location
     }
   })
 
