@@ -8,6 +8,7 @@ router.get('/', shopsController.index);
 router.get('/menu', shopsController.menu);
 
 router.get('/:id', shopsController.selectid);
+router.post('/', shopsController.insert);
 
 
 
