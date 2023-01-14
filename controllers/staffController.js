@@ -33,17 +33,25 @@ exports.show = async (req, res, next) => {
       _id: id,
     });
 
+
+
     if (!staff) {
-      throw new Error("ไม่พบผู้ใช้งาน");
+
+      const error = new Error("เกิดข้อผิดพลาด : ไม่พบผู้ใช้งาน")
+      error.statusCode = 400
+      throw error;
+
+    //  throw new Error("ไม่พบผู้ใช้งาน");
     } else {
       res.status(200).json({
         data: staff,
       });
     }
   } catch (error) {
-    res.status(400).json({
-      error: { Message: "เกิดข้อผิดพลาด : " + error.message },
-    });
+    // res.status(400).json({
+    //   error: { Message: "เกิดข้อผิดพลาด : " + error.message },
+    // });
+    next(error)
   }
 };
 
@@ -73,16 +81,18 @@ exports.destroy = async (req, res, next) => {
     });
 
     if (staff.deletedCount === 0) {
-      throw new Error("ไม่สามารถลบข้อมูลได้ / ไม่พบผู้ใช้งาน");
+      const error = new Error("ไม่สามารถลบข้อมูลได้ / ไม่พบผู้ใช้งาน")
+      error.statusCode = 400
+      throw error;
+     // throw new Error("ไม่สามารถลบข้อมูลได้ / ไม่พบผู้ใช้งาน");
+
     } else {
       res.status(200).json({
         message: "ลบข้อมูลเรียบร้อยแล้ว",
       });
     }
   } catch (error) {
-    res.status(400).json({
-      error: { Message: "เกิดข้อผิดพลาด : " + error.message },
-    });
+    next(error)
   }
 };
 
