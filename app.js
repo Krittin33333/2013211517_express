@@ -5,11 +5,14 @@ var logger = require('morgan');
 const mongoose = require('mongoose')
 const config = require('./config/index') //env
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var companyRouter = require('./routes/company');
 var shopRouter = require('./routes/shop');
 const staffRouter = require('./routes/staff');
+
+const errorHandler = require('./middleware/errorHandler')
 
 var app = express();
 mongoose.connect(config.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -25,12 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/company', companyRouter);
 app.use('/staff',staffRouter);
 app.use('/shop',shopRouter);
 
-
+app.use(errorHandler);
 
 module.exports = app;
 

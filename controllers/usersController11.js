@@ -22,30 +22,8 @@ exports.index = async(req, res, next) => {
 
   };
 
-  // exports.company = (req, res, next) => {
-  
-  //   res.status(200).json({
-  //       data:[{
-  //           id: 1,
-  //           name: 'Techno Brave Asia',
-  //           address: {
-  //               province: 'Bangkok',
-  //               postcode: '10400'
-  //           }},{
-  //           id: 2,
-  //           name: 'M.SOFT (Thailand)',
-  //           address: {
-  //               province: 'Bangkok',
-  //               postcode: '10120'
-  //           }},{
-  //           id: 3,
-  //           name: 'C.S.I. Group',
-  //           address: {
-  //               province: 'Bangkok',
-  //               postcode: '10500'
-  //           }}
-      
-  //   ]
-  //   })
-
-  // };
+  exports.register = (req,res ,next) => {
+    res.status(200).json({
+      message: "hi"
+    })
+  }

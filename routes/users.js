@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const usersController = require('../controllers/usersController11')
+const usersController = require('../controllers/usersController')
 
 
 
@@ -8,6 +8,8 @@ const usersController = require('../controllers/usersController11')
 router.get('/', usersController.index);
 
 router.get('/bio', usersController.bio);
+
+router.post('/', usersController.register);
 
 
 
