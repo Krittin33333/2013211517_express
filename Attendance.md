@@ -1,1 +1,1 @@
-Krittin (Aom): Chapter 7 - Upload Fie Base64 and Google Storage
+Krittin (Aom): Chapter 7 - Login with JSON WEB TOKEN
