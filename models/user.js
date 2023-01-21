@@ -17,6 +17,12 @@ const schema = new Schema({
     return hasPassword;
 
   }
+  
+  schema.methods.checkPassword = async function(password){
+    const isvaild = await bcrypt.compare(password,this.password)
+    return isvaild;
+
+  }
 
 const user = mongoose.model("User",schema)
 
