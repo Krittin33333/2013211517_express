@@ -3,6 +3,7 @@ const path = require("path");
 const uuidv4 = require("uuid");
 const { promisify } = require("util");
 const writeFileAsync = promisify(fs.writeFile);
+const { validationResult } = require("express-validator");
 
 const Staff = require("../models/staff");
 const config = require('../config/index');  //env
@@ -56,19 +57,30 @@ exports.show = async (req, res, next) => {
 };
 
 exports.insert = async (req, res, next) => {
-  // res.send('respond with a resource');
+  try {
+    const { name, salary, photo } = req.body;
 
-  const { name, photo } = req.body;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const error = new Error("ข้อมูลที่ได้รับมาไม่ถูกต้อง");
+      error.statusCode = 422;
+      error.validation = errors.array();
+      throw error;
+    }
 
-  let staff = new Staff({
-    name: name, //database ,input
-    photo: await saveImageToDisk(photo),
-  });
-  await staff.save();
+    let staff = new Staff({
+      name: name,
+      salary: salary,
+      photo: photo && (await saveImageToDisk(photo)),
+    });
+    await staff.save();
 
-  res.status(200).json({
-    Message: "เพิ่มข้อมูลเรียบร้อยแล้ว",
-  });
+    res.status(200).json({
+      message: "เพิ่มข้อมูลเรียบร้อยแล้ว",
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 exports.destroy = async (req, res, next) => {
