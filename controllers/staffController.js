@@ -21,7 +21,8 @@ exports.index = async (req, res, next) => {
   })
 
   res.status(200).json({
-    data: staffWithPhotoDomain,
+    //data: staffWithPhotoDomain,
+    data: staff,
   });
 };
 
