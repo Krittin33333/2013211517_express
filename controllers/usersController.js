@@ -1,7 +1,8 @@
 const User = require("../models/user");
-const { validationResult } = require("express-validator");
+const { validationResult,body } = require("express-validator");
 const jwt = require('jsonwebtoken');
 const config = require('../config/index')
+
 
 exports.index = async (req, res, next) => {
   // res.send('respond with a resource');
@@ -113,5 +114,12 @@ exports.login = async (req, res, next) => {
   {
     next(error)
   }
- 
 };
+  exports.profile = (req, res, next) => {
+    const { role, name, email } = req.user;
+    res.status(200).json({
+      name: name,
+      email: email,
+      role: role,
+    });
+  };

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const usersController = require('../controllers/usersController')
 const { body } = require('express-validator');
-
+const passportJWT = require("../middleware/passportJWT")
 
 /* GET users listing. */
 router.get('/', usersController.index);
@@ -20,6 +20,7 @@ router.post('/login',[
     body('password').not().isEmpty().withMessage("กรุณาป้อนรหัสผ่านด้วย").isLength({ min: 5}).withMessage("รหัสผ่านต้อง 5 ตัวอักษรขึ้นไป"),
 ]  ,usersController.login)
 
+router.get('/me',[passportJWT.isLogin], usersController.profile)
 
 
 module.exports = router;
