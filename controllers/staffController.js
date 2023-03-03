@@ -115,10 +115,10 @@ exports.update = async (req, res, next) => {
     const { name, salary } = req.body;
 
     // 1
-    // const staff = await Staff.findById(id)
-    // staff.name = name
-    // staff.salary = salary
-    // await staff.save()
+    const staff = await Staff.findById(id)
+    staff.name = name
+    staff.salary = salary
+    await staff.save()
 
     // 2
     // const staff = await Staff.findByIdAndUpdate(id,{
@@ -126,13 +126,13 @@ exports.update = async (req, res, next) => {
     //     salary : salary
     // })
 
-    const staff = await Staff.updateOne(
-      { _id: id },
-      {
-        name: name,
-        salary: salary,
-      }
-    );
+    // const staff = await Staff.updateOne(
+    //   { _id: id },
+    //   {
+    //     name: name,
+    //     salary: salary,
+    //   }
+    // );
 
     console.log(staff);
 
